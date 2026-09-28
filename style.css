@@ -1,0 +1,303 @@
+/* ===== Grundlæggende ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background: #fff;
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Fælles bredde og luft i siden for alle sider */
+header,
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main {
+  padding-bottom: 60px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 24px 0 16px;
+}
+
+/* ===== Header: logo til venstre, menu til højre (flexbox) ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  padding-bottom: 12px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #e53935;
+}
+
+nav ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+/* ===== index.html: kategorier ===== */
+/* Responsivt grid: der kommer så mange kolonner, som der er plads til */
+.category_list_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.category_list_container a {
+  display: block;
+  padding: 24px 20px;
+  background: #959595;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.category_list_container a:hover {
+  background: #555;
+}
+
+/* ===== produktliste.html: produktkort ===== */
+.product_list_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.product_card {
+  position: relative; /* så "Sold out"-mærket kan placeres ovenpå billedet */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product_card img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f4f4f4;
+  margin-bottom: 8px;
+}
+
+.product_card h3 {
+  font-size: 1rem;
+}
+
+.product_card .subtle {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.product_card .read_more {
+  margin-top: auto; /* skubber linket ned i bunden af kortet */
+  font-size: 0.9rem;
+}
+
+/* Pris-linjen: pris til venstre, rabat-mærke til højre */
+.price_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== Tilstande: udsolgt og nedsat (bruges på begge sider) ===== */
+
+/* Skjult som standard – vises kun når produktet har klassen .nedsat */
+.discount_label,
+.old_price {
+  display: none;
+}
+
+.nedsat .discount_label {
+  display: inline-block;
+  background: #e53935;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  border-radius: 2px;
+}
+
+.nedsat .old_price {
+  display: block;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.nedsat .price {
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* Skjult som standard – vises kun når produktet har klassen .udsolgt */
+.soldout_label {
+  display: none;
+}
+
+.udsolgt .soldout_label {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #666;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+.udsolgt img {
+  opacity: 0.4;
+}
+
+/* ===== produkt.html: detaljeside ===== */
+.breadcrumbs {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.breadcrumbs li + li::before {
+  content: "›";
+  margin-right: 6px;
+  color: #999;
+}
+
+/* Tre kolonner på store skærme, én kolonne på mobil */
+.product_page {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 800px) {
+  .product_page {
+    grid-template-columns: 1fr 1fr 280px;
+    align-items: start;
+  }
+}
+
+.product_image {
+  position: relative;
+}
+
+.product_info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.product_info dt {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.product_info dd {
+  margin-left: 12px;
+}
+
+.brand {
+  margin-top: 32px;
+}
+
+.brand h3 {
+  font-size: 2rem;
+}
+
+.buy_box {
+  background: #959595;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buy_box h2 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.buy_box .subtle {
+  color: #ddd;
+  font-size: 0.85rem;
+}
+
+.buy_box .old_price {
+  color: #ddd;
+}
+
+.buy_box .price {
+  font-size: 1.3rem;
+}
+
+.buy_box .nedsat .price,
+.buy_box.nedsat .price {
+  color: #fff;
+}
+
+.buy_box form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buy_box select,
+.buy_box button {
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  font: inherit;
+}
+
+.buy_box button {
+  background: #fff;
+  color: #222;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Udsolgt: knappen ser deaktiveret ud */
+.buy_box.udsolgt button {
+  background: #666;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.buy_box.udsolgt .soldout_label {
+  position: static;
+}

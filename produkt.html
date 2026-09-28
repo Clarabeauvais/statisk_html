@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Fashion<span>Я</span>Us</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Categories</a></li>
+                <li><a href="#">Brands</a></li>
+                <li><a href="#">Seasons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produktliste.html">Apparel</a></li>
+                <li>Blue T20 Indian Cricket Jersey</li>
+            </ol>
+        </nav>
+
+        <section class="product_page">
+            <div class="product_image udsolgt">
+                <span class="soldout_label">Sold out</span>
+                <img src="https://kea-alt-del.dk/t7/images/webp/640/1164.webp" alt="Blue T20 Indian Cricket Jersey">
+            </div>
+
+            <div class="product_info">
+                <h2>Product Information</h2>
+                <dl>
+                    <dt>Model name</dt>
+                    <dd>Collared Jersey</dd>
+                    <dt>Color</dt>
+                    <dd>Blue</dd>
+                    <dt>Inventory number</dt>
+                    <dd>1164</dd>
+                </dl>
+
+                <div class="brand">
+                    <h3>Nike</h3>
+                    <p>Nike, creating experiences for today’s athlete</p>
+                </div>
+            </div>
+
+            <aside class="buy_box udsolgt nedsat">
+                <h2>Blue T20 Indian Cricket Jersey</h2>
+                <p class="subtle">Nike | Tshirts</p>
+
+                <div class="price_row">
+                    <div>
+                      
+                        <p class="old_price">Prev. DKK 1595,-</p>
+                        <p class="price">Now DKK 1148,-</p>
+                    </div>
+                    <span class="discount_label">-28%</span>
+                </div>
+
+                <span class="soldout_label">Sold out</span>
+
+                <form>
+                    <label for="size" class="subtle">Choose a size</label>
+                    <select id="size" name="size">
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+            
+                    <button type="submit" disabled>Add to basket</button>
+                </form>
+            </aside>
+        </section>
+    </main>
+</body>
+</html>
